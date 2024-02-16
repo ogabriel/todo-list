@@ -23,9 +23,11 @@ btn.addEventListener('click', () => {
 
     const newTodoListItem = document.createElement('li')
     newTodoListItem.innerText = todo
+
     const newTodoDeleteBtn = document.createElement('button')
     newTodoDeleteBtn.innerText = 'Delete'
     newTodoDeleteBtn.addEventListener('click', deleteTodo)
+
     const newTodoCheckBtn = document.createElement('button')
     newTodoCheckBtn.innerText = 'Check'
     newTodoCheckBtn.addEventListener('click', checkTodo)
