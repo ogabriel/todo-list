@@ -17,16 +17,9 @@ const editTodo = (e) => {
     todoListItem.innerText = newTodo
 }
 
-const btn = document.querySelector('#todo-input-btn')
-btn.addEventListener('click', () => {
-    const todo = document.querySelector('#todo-input').value
-
-    if (todo === '') {
-        alert('Please enter a todo')
-        return
-    }
-
+const addTodo = (todo) => {
     const todoList = document.querySelector('#todo-list')
+
     const newTodo = document.createElement('div')
     newTodo.classList.add('todo')
 
@@ -51,7 +44,18 @@ btn.addEventListener('click', () => {
     newTodo.appendChild(newTodoCheckBtn)
 
     todoList.appendChild(newTodo)
+}
 
+const btn = document.querySelector('#todo-input-btn')
+btn.addEventListener('click', () => {
+    const todo = document.querySelector('#todo-input').value
+
+    if (todo === '') {
+        alert('Please enter a todo')
+        return
+    }
+
+    addTodo(todo)
     saveData()
 })
 
