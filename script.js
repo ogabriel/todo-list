@@ -1,8 +1,8 @@
-const btn = document.querySelector('#todo-btn')
 
 const deleteTodo = (e) => {
     const todo = e.target.parentElement
     todo.remove()
+    saveData()
 }
 
 const checkTodo = (e) => {
@@ -10,6 +10,14 @@ const checkTodo = (e) => {
     todo.classList.toggle('checked')
 }
 
+const editTodo = (e) => {
+    const todo = e.target.parentElement
+    const todoListItem = todo.querySelector('li')
+    const newTodo = prompt('Edit todo', todoListItem.innerText)
+    todoListItem.innerText = newTodo
+}
+
+const btn = document.querySelector('#todo-input-btn')
 btn.addEventListener('click', () => {
     const todo = document.querySelector('#todo-input').value
 
@@ -20,9 +28,14 @@ btn.addEventListener('click', () => {
 
     const todoList = document.querySelector('#todo-list')
     const newTodo = document.createElement('div')
+    newTodo.classList.add('todo')
 
     const newTodoListItem = document.createElement('li')
     newTodoListItem.innerText = todo
+
+    const newTodoEditBtn = document.createElement('button')
+    newTodoEditBtn.innerText = 'Edit'
+    newTodoEditBtn.addEventListener('click', editTodo)
 
     const newTodoDeleteBtn = document.createElement('button')
     newTodoDeleteBtn.innerText = 'Delete'
@@ -33,8 +46,23 @@ btn.addEventListener('click', () => {
     newTodoCheckBtn.addEventListener('click', checkTodo)
 
     newTodo.appendChild(newTodoListItem)
+    newTodo.appendChild(newTodoEditBtn)
     newTodo.appendChild(newTodoDeleteBtn)
     newTodo.appendChild(newTodoCheckBtn)
 
     todoList.appendChild(newTodo)
+
+    saveData()
 })
+
+const saveData = () => {
+    const todoList = document.querySelector('#todo-list')
+    localStorage.setItem('todoList', todoList.innerHTML)
+}
+
+const loadData = () => {
+    const todoList = document.querySelector('#todo-list')
+    todoList.innerHTML = localStorage.getItem('todoList')
+}
+
+window.addEventListener('load', loadData)
