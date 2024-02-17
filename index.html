@@ -3,14 +3,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
+    <div id="todo-container">
       <h1>Todo</h1>
 
-      <input type="text" placeholder="Add todo" id="todo-input" />
-      <button type="submit" id="todo-btn">Add</button>
+      <input type="text" placeholder="Add task" id="todo-input" />
+      <button type="submit" id="todo-input-btn">Add</button>
 
-      <h2>Todo list</h2>
-      <ul id="todo-list"></ul>
+      <div id="todo-list-container">
+        <h2>Todo list</h2>
+        <ul id="todo-list"></ul>
+      </div>
     </div>
 
     <script src="script.js"></script>

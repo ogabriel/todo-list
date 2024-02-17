@@ -1,3 +1,63 @@
+body {
+  background-color: #11001c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+}
+
+#todo-input {
+  border-radius: 20px;
+  padding: 15px;
+  background-color: #3a015c;
+  color: #fff;
+  border: none;
+}
+
+#todo-input-btn {
+  border-radius: 20px;
+  padding: 15px 20px 15px;
+  background-color: #3a015c;
+  color: #fff;
+  border: none;
+}
+
+#todo-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #220135;
+  border-radius: 15px;
+  margin-top: 50px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  color: #fff;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+}
+
 .checked {
   text-decoration: line-through;
 }

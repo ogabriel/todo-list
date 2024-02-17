@@ -1,4 +1,3 @@
-
 const deleteTodo = (e) => {
     const todo = e.target.parentElement
     todo.remove()
