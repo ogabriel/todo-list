@@ -1,7 +1,10 @@
 const deleteTodo = (e) => {
-    const todo = e.target.parentElement
-    todo.remove()
-    saveData()
+    const todoDiv = e.target.parentElement
+    const todoItem = todoDiv.getElementsByTagName('li')[0]
+    const todo = todoItem.innerText
+
+    todoDiv.remove()
+    removeData(todo)
 }
 
 const checkTodo = (e) => {
