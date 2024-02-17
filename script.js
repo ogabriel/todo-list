@@ -12,15 +12,32 @@ const deleteTodo = (e) => {
 }
 
 const checkTodo = (e) => {
-    const todo = e.target.parentElement
-    todo.classList.toggle('checked')
+    const todoDiv = e.target.parentElement
+    const todoListItem = getListItem(todoDiv)
+    const todo = todoListItem.innerText
+
+    todoListItem.classList.toggle('checked')
+    saveData(todo, 'checked')
 }
 
 const editTodo = (e) => {
-    const todo = e.target.parentElement
-    const todoListItem = todo.querySelector('li')
-    const newTodo = prompt('Edit todo', todoListItem.innerText)
-    todoListItem.innerText = newTodo
+    const todoDiv = e.target.parentElement
+    const todoListItem = getListItem(todoDiv)
+    const todo = todoListItem.innerText
+
+    const newTodo = prompt('Edit task', todo)
+
+    if (newTodo != todo) {
+        todoListItem.innerText = newTodo
+        removeData(todo)
+
+        if (todoListItem.classList.contains('checked')) {
+            saveData(newTodo, 'checked')
+        } else {
+            saveData(newTodo, 'unchecked')
+        }
+    }
+
 }
 
 const addTodo = (todo) => {
