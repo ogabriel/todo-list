@@ -67,14 +67,30 @@ const addTodo = (todo) => {
     newTodo.appendChild(newTodoCheckBtn)
 
     todoList.appendChild(newTodo)
+
+    return newTodo
+}
+
+const validateTodo = (todo) => {
+    if (todo === '') {
+        alert('Please enter a task name')
+        return false
+    }
+
+    const currentTodo = localStorage.getItem(todo)
+
+    if (currentTodo == null) {
+        alert('All tasks must be unique')
+        return false
+    }
 }
 
 const btn = document.querySelector('#todo-input-btn')
+
 btn.addEventListener('click', () => {
     const todo = document.querySelector('#todo-input').value
 
-    if (todo === '') {
-        alert('Please enter a todo')
+    if (!validateTodo()) {
         return
     }
 
