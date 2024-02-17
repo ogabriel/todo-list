@@ -1,7 +1,11 @@
+const getListItem = (div) => {
+    return div.getElementsByTagName('li')[0]
+}
+
 const deleteTodo = (e) => {
     const todoDiv = e.target.parentElement
-    const todoItem = todoDiv.getElementsByTagName('li')[0]
-    const todo = todoItem.innerText
+    const todoListItem = getListItem(todoDiv)
+    const todo = todoListItem.innerText
 
     todoDiv.remove()
     removeData(todo)
