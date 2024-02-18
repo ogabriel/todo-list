@@ -32,13 +32,9 @@ h2 {
 }
 
 #todo-list-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background-color: #220135;
-  border-radius: 15px;
-  margin-top: 50px;
+  border-radius: 25px;
+  margin-top: 30px;
 }
 
 ul {
@@ -51,11 +47,25 @@ li {
 }
 
 .todo {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
+  background-color: #422c61;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 20px;
+  height: 20px;
   width: 100%;
+}
+
+.todo li {
+  float: left;
+}
+
+.todo button {
+  float: right;
+  border-radius: 20px;
+  padding: 10px 20px 10px;
+  background-color: #3a015c;
+  color: #fff;
+  border: none;
 }
 
 .checked {
