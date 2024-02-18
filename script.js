@@ -91,10 +91,12 @@ const validateTodo = (todo) => {
 
   const currentTodo = localStorage.getItem(todo);
 
-  if (currentTodo == null) {
+  if (currentTodo != null) {
     alert("All tasks must be unique");
     return false;
   }
+
+  return true;
 };
 
 const btn = document.querySelector("#todo-input-btn");
@@ -102,7 +104,7 @@ const btn = document.querySelector("#todo-input-btn");
 btn.addEventListener("click", () => {
   const todo = document.querySelector("#todo-input").value;
 
-  if (!validateTodo()) {
+  if (!validateTodo(todo)) {
     return;
   }
 
