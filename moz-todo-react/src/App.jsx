@@ -35,7 +35,7 @@ function App(props) {
     />
   ));
 
-  const headingText = `${tasks.length} task${tasks.length > 1 ? "s" : null} remaning`;
+  const headingText = `${tasks.length} task${tasks.length > 1 ? "s" : ""} remaning`;
 
   return (
     <div className="todoapp stack-large">
